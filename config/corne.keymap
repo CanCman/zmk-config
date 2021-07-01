@@ -26,21 +26,21 @@
                         bindings = <
    &kp TAB   &kp Q       &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
    &kp CAPS  &kp A       &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &mt LCTRL Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &mt RCTRL FSLH &mt RCTRL ESC
-        &mt LALT BSPC &mt LGUI SPACE &mo LWR     &mo RSE &mt RGUI RET &kp RALT
+   &kp LSHFT &mt LCTRL Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &mt RCTRL FSLH &mt RSHFT ESC
+        &mt LALT BSPC &mt LGUI SPACE &mo LWR     &mo RSE &mt RGUI RET &mt RALT DEL
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR|     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  TAB |  1  |  2  |  3  |  4        |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+// | CAPS |     |     |     | sreensot  |     |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |           |     |   |     |     |     |     |     |      |
+//                    | GUI |           | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5            &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &none 
-   &kp CAPS  &trans       &trans       &trans       &trans       &trans            &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans            &trans   &trans   &trans &trans    &trans &trans
-                           &mt LALT BSPC    &mt LGUI SPACE     &mo ADJ           &mo ADJ  &mt RGUI RET &kp RALT
+   &kp TAB    &kp N1       &kp N2      &kp N3    &kp N4                 &kp N5                  &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &none 
+   &kp CAPS   &trans       &trans      &trans    &kp LG(LC(LS(N4)))     &kp LG(LS(N4))          &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &kp LSHFT  &kp LCTRL    &trans      &trans    &trans                 &trans                  &trans   &trans   &trans &trans    &trans &trans
+                           &mt LALT BSPC    &mt LGUI SPACE     &mo ADJ                          &mo ADJ  &mt RGUI RET &kp RALT
                         >;
                 };
 
@@ -48,20 +48,20 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \ |  ~  | // TODO: Fix this row when &mkp is committed
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &none 
-   &kp CAPS  &trans    &trans  &trans    &trans    &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp PIPE &kp GRAVE
-   &kp LSHFT &kp LCTRL   &trans  &trans    &trans    &trans      &trans    &trans    &trans          &trans   &kp BSLH &kp TILDE
+   &kp  TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT               &kp CARET  &kp AMPS      &kp KP_MULTIPLY  &kp LPAR    &kp RPAR &none 
+   &kp CAPS  &trans    &trans  &trans    &trans    &trans                  &kp MINUS  &kp EQUAL     &kp LBRC         &kp RBRC    &kp PIPE &kp GRAVE
+   &kp LSHFT &kp LCTRL &trans  &trans    &trans    &trans                  &kp UNDER  &kp KP_PLUS   &kp LBKT         &kp RBKT    &kp BSLH &kp TILDE
                                    &mt LALT BSPC &mt LGUI SPACE &mo ADJ    &mo ADJ &mt RGUI RET &kp RALT
                         >;
                 };
 
                 adjust_layer {
 // -----------------------------------------------------------------------------------------------
-// | RST | RGBTOG| BT0 | BT1 | BT2 | BT3  | BT4 |   | BT4 | BT3  | BT2 | BT1 | BT0 | RGBTOG| RST |
-// |     | MOD+  | HUE+| SAT+| VAL+|      | BLDR|   | BLDR|      | VAL+| SAT+| HUE+| MOD+  |
+//       | RGBTOG| BT0 | BT1 | BT2 | BT3  | BT4 |   | BT4 | BT3  | BT2 | BT1 | BT0 | RGBTOG|                          
+//       | MOD+  | HUE+| SAT+| VAL+|      | BLDR|   | BLDR|      | VAL+| SAT+| HUE+| MOD+  |
 //       | MOD-  | HUE-| SAT-| VAL-|      |     |   |     |      | VAL-| SAT-| HUE-| MOD-  |
 //                           |     | BTCLR|     |   |     | BTCLR|     |
                         bindings = <
